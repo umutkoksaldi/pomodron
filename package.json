@@ -1,0 +1,25 @@
+{
+  "name": "pomodo_electron",
+  "version": "1.0.0",
+  "description": "Pomodoro timer written in electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umutkoksaldi/pomodron.git"
+  },
+  "keywords": [
+    "pomodoro"
+  ],
+  "author": "umutkoksaldi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/umutkoksaldi/pomodron/issues"
+  },
+  "homepage": "https://github.com/umutkoksaldi/pomodron#readme",
+  "dependencies": {
+    "electron": "^1.7.9"
+  }
+}
