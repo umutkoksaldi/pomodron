@@ -24,9 +24,4 @@ Then simply run the application with:
 
 ``` npm start ```
 
-## Download
-If you wish to download the executable file for macOS then you can do so by clicking below:
-
-[macOS](umutkoksaldi.com/downloads/pomodron_macos.zip)
-
 
