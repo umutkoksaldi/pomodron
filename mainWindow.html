@@ -17,14 +17,14 @@
     <ul></ul>
     <h3 id="demo" class="center">25m : 00s</h3>
     <div class="center-align">
-            <button type="button" onclick="StartTimer();" class="btn waves-effect waves-light">Start Working!</button>
+            <button type="button" onclick="StartPomodoro();" class="btn waves-effect waves-light">Start Working!</button>
     </div>
     
     <script>
         // pomodoro session time in minutes
         var pSessionTime = 25;
 
-        function StartTimer(){
+        function StartPomodoro(){
             // Set the date we're counting down to
             var countDownDate = new Date();
             countDownDate.setTime(countDownDate.getTime() + pSessionTime * 60 * 1000);
@@ -51,32 +51,6 @@
                 document.getElementById("demo").innerHTML = "EXPIRED";
             }
             }, 1000);
-        }
-
-        // add item
-        ipcRenderer.on('item:add', function(e, item){
-            
-            // const itemText = document.createTextNode(item);  
-            // pSessionTime = parseInt(itemText);
-            // console.log(pSessionTime);
-        });
-
-        // clear items
-        ipcRenderer.on('item:clear', function(){
-            ul.innerHTML = '';
-            if(ul.children.length == 0) {
-                ul.className = '';
-            }
-        });
-
-        // remove item
-        ul.addEventListener('dblclick', removeItem);
-
-        function removeItem(e) {
-            e.target.remove();
-            if(ul.children.length == 0) {
-                ul.className = '';
-            }
         }
 
     </script>
