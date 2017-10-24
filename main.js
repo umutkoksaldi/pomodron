@@ -13,7 +13,11 @@ let addWindow;
 // Listen for the app to be ready
 app.on('ready', function() {
     // Create new window
-    mainWindow = new BrowserWindow({});
+    mainWindow = new BrowserWindow({
+        width: 400,
+        height: 250,
+        title: 'Add shopping list item'
+    });
     // Load main html file
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'mainWindow.html'),
@@ -35,8 +39,8 @@ app.on('ready', function() {
 function createAddWindow() {
     // Create new window
     addWindow = new BrowserWindow({
-        width: 300,
-        height: 200,
+        width: 100,
+        height: 80,
         title: 'Add shopping list item'
     });
     // Load main html file
@@ -62,18 +66,18 @@ const mainMenuTemplate = [
     {
         label: 'File',
         submenu: [
-            {
-                label: 'Add Item',
-                click(){
-                    createAddWindow();
-                }
-            },
-            {
-                label: 'Clear Items',
-                click(){
-                    mainWindow.webContents.send('item:clear');
-                }
-            },
+            // {
+            //     label: 'Add Item',
+            //     click(){
+            //         createAddWindow();
+            //     }
+            // },
+            // {
+            //     label: 'Clear Items',
+            //     click(){
+            //         mainWindow.webContents.send('item:clear');
+            //     }
+            // },
             {
                 label: 'Quit',
                 accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',

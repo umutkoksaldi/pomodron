@@ -9,50 +9,56 @@
     
     <nav>
         <div class="nav-wrapper">
-            <a class="brand-logo center">ShoppingList</a>
+            <a class="brand-logo center">Pomodron</a>
         </div>
+
+        
     </nav>
     <ul></ul>
-    <p id="demo"></p>
-
+    <h3 id="demo" class="center">25m : 00s</h3>
+    <div class="center-align">
+            <button type="button" onclick="StartTimer();" class="btn waves-effect waves-light">Start Working!</button>
+    </div>
+    
     <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
+        // pomodoro session time in minutes
+        var pSessionTime = 25;
 
-        // Update the count down every 1 second
-        var x = setInterval(function() {
+        function StartTimer(){
+            // Set the date we're counting down to
+            var countDownDate = new Date();
+            countDownDate.setTime(countDownDate.getTime() + pSessionTime * 60 * 1000);
+            var countDownTime = countDownDate.getTime();
+            // Update the count down every 1 second
+            var x = setInterval(function() {
 
-        // Get todays date and time
-        var now = new Date().getTime();
+            // Get todays date and time
+            var now = new Date().getTime();
 
-        // Find the distance between now an the count down date
-        var distance = countDownDate - now;
+            // Find the distance between now an the count down date
+            var distance = countDownTime - now;
 
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Time calculations for days, hours, minutes and seconds
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Display the result in the element with id="demo"
-        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
+            // Display the result in the element with id="demo"
+            document.getElementById("demo").innerHTML = minutes + "m : " + seconds + "s ";
 
-        // If the count down is finished, write some text 
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("demo").innerHTML = "EXPIRED";
+            // If the count down is finished, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+            }, 1000);
         }
-        }, 1000);
 
         // add item
         ipcRenderer.on('item:add', function(e, item){
-            ul.className = 'collection';
-            const li = document.createElement('li');
-            li.className = 'collection-item';
-            const itemText = document.createTextNode(item);
-            li.appendChild(itemText);
-            ul.appendChild(li);            
+            
+            // const itemText = document.createTextNode(item);  
+            // pSessionTime = parseInt(itemText);
+            // console.log(pSessionTime);
         });
 
         // clear items
