@@ -10,6 +10,7 @@ Information about the Pomodoro Technique: https://en.wikipedia.org/wiki/Pomodoro
 
 ## Run
 Make sure that you have npm and Node.js installed on your computer. You can check whether they are installed and their versions by running:
+
 ``` npm -v ```
 
 ``` node -v ```
