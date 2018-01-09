@@ -2,3 +2,4 @@ node_modules/*
 *.dll
 release-builds/*
 addWindow.html
+.DS_Store
